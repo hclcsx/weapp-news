@@ -1,0 +1,88 @@
+/**index.wxss**/
+.navigator {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 35rpx;
+  line-height: 42rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  padding-bottom: 20rpx;
+  background-color: #4ec5e6;
+}
+
+.navigator-item {
+  height: 60rpx;
+  white-space: nowrap;
+  color: white;
+  opacity: 0.6;
+}
+
+.active{
+  color:white;
+  opacity: 1;
+  border-bottom: 2rpx solid white;
+}
+
+.swaiper-wrapper {
+  padding: 30rpx;
+  background-color: rgba(255, 249, 229, 0.2);
+}
+
+.swiper-desc {
+    position: absolute;
+    bottom: 0;
+    padding: 20rpx;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 30rpx;
+    line-height: 42rpx;
+}
+
+.slide-image {
+  width: 100%; 
+}
+
+.news-item {
+  display: flex;
+  align-items: center;
+  height: 200rpx;
+  margin: 0 40rpx;
+  padding: 20rpx 0;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.news-info {
+  width: 80%;
+  height: 160rpx;
+  margin-right: 20rpx;
+}
+
+.news-title {
+  opacity: 0.9;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  margin-bottom: 20rpx;
+}
+
+.news-desc {
+  display: flex;
+  align-items: center;
+  font-size: 25rpx;
+  line-height: 32rpx;
+  opacity: 0.5;
+}
+
+.news-source {
+  margin-right: 40rpx;
+}
+
+
+.news-avatar {
+  height: 160rpx;
+}
+
+.news-thumb {
+  width: 240rpx;
+  height: 150rpx;
+}

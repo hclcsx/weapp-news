@@ -1,0 +1,11 @@
+<view class="news-detail">
+  <view class='news-title'>{{article.title}}</view>
+  <view class='news-desc'>
+    <view class='news-source'>{{article.source || '独家新闻'}}</view>
+    <view class='news-time'>{{article.time}}</view>
+    <view class='news-count'>阅读 {{article.readCount}}</view>
+  </view>
+  <view class='news-content'>
+    <rich-text nodes="{{content}}" type="node"></rich-text>
+  </view>
+</view>

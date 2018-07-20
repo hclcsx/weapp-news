@@ -1,0 +1,32 @@
+<view>
+  <!-- navigator -->
+  <view class='navigator'>
+    <view class="navigator-item {{ selectedCategory == item.key ? 'active' : '' }}" wx:for="{{newsCategories}}" wx:key="key">
+      <view id='{{item.key}}' bindtap='onTapChangeCategory'>{{item.value}}</view>
+    </view>
+  </view>
+  <!-- swiper -->
+  <view class='swaiper-wrapper'>
+    <swiper indicator-dots autoplay circular>
+    <block wx:for="{{hotList}}" wx:key="*this">
+      <swiper-item bindtap='onTapInspectNews' id='{{item.id}}'>
+        <image src="{{item.firstImage}}" class="slide-image"/>
+        <view class="swiper-desc">{{item.title}}</view>
+      </swiper-item>
+    </block>
+  </swiper>
+  </view>
+  <!-- news-list -->
+  <view class="news-item" wx:for="{{list}}" wx:key="id" bindtap='onTapInspectNews' id='{{item.id}}'>
+    <view class="news-info">
+      <view class="news-title">{{item.title}}</view>
+      <view class='news-desc'>
+        <view class="news-source">{{ item.source || '独家新闻' }}</view>
+        <view class="news-date">{{item.time}}</view>
+      </view>
+    </view>
+    <view class='news-avatar'>
+      <image class="news-thumb" src="{{item.firstImage}}"></image>
+    </view>
+  </view>
+</view>
