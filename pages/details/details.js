@@ -11,6 +11,9 @@ Page({
   },
 
   getNewsDetail(newsId) {
+    wx.showLoading({
+      title: '加载中',
+    });
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
       data: {
@@ -19,11 +22,14 @@ Page({
       success: res => {
         const article = res.data.result;
         const articleWithData = {
-          time: moment(article.date).format('HH:mm'),
+          time: moment(article.date).format('YYYY-MM-DD HH:mm'),
           ...article,
         }
         this.setData({ article: articleWithData });
         this.parseContentToNodes(articleWithData.content);
+      },
+      complete: () => {
+        wx.hideLoading();
       }
     })
   },

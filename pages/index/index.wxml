@@ -10,7 +10,7 @@
     <swiper indicator-dots autoplay circular>
     <block wx:for="{{hotList}}" wx:key="*this">
       <swiper-item bindtap='onTapInspectNews' id='{{item.id}}'>
-        <image src="{{item.firstImage}}" class="slide-image"/>
+        <image src="{{ item.firstImage || '/images/default.jpg' }}" class="slide-image"/>
         <view class="swiper-desc">{{item.title}}</view>
       </swiper-item>
     </block>
@@ -26,7 +26,7 @@
       </view>
     </view>
     <view class='news-avatar'>
-      <image class="news-thumb" src="{{item.firstImage}}"></image>
+      <image class="news-thumb" src="{{item.firstImage || '/images/default.jpg'}}"></image>
     </view>
   </view>
 </view>

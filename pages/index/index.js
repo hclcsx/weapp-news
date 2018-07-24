@@ -44,32 +44,37 @@ Page({
   },
 
   getNews(callback) {
+    wx.showLoading({
+      title: '加载中',
+    });
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
       data: {
         type: this.data.selectedCategory,
       },
       success: res => {
-        console.log(res.data);
         const news = res.data.result;
         const newsWithDate = news.map(item => {
           return {
-            time: moment(item.date).format('HH:mm'),
+            time: moment(item.date).format('YYYY-MM-DD HH:mm'),
             ...item,
           };
         });
         this.setData({ list: newsWithDate, hotList: newsWithDate.slice(0, 3) });
       },
       complete: () => {
-        callback && callback();
+        wx.hideLoading();
+        typeof callback === 'function' && callback();
       }
     })
   },
 
   onTapChangeCategory(event) {
     const key = event.target.id;
-    this.setData({ selectedCategory: key });
-    this.getNews();
+    if (key != this.data.selectedCategory) {
+      this.setData({ selectedCategory: key });
+      this.getNews();
+    }
   },
 
   onTapInspectNews(event) {
